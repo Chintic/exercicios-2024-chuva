@@ -6,7 +6,7 @@ namespace Chuva\Php\WebScrapping\Entity;
  * Paper Author personal information.
  */
 class Person {
-  
+
   /**
    * Person name.
    */
