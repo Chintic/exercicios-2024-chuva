@@ -2,8 +2,6 @@ name: PHP
 
 on:
   push:
-    branches:
-      - master
     paths:
       - "php/**"
 
@@ -11,13 +9,7 @@ jobs:
   Psalm:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-        with:
-          ref: ${{ github.ref }}
-          token: ${{ secrets.GITHUB_TOKEN }}
-        env:
-          NODE_VERSION: 20
+      - uses: actions/checkout@v2
 
       - name: Installs composer
         run: |
@@ -32,18 +24,12 @@ jobs:
   PHPlint:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-        with:
-          ref: ${{ github.ref }}
-          token: ${{ secrets.GITHUB_TOKEN }}
-        env:
-          NODE_VERSION: 20
+      - uses: actions/checkout@v2
 
       - name: Installs composer
         run: |
           cd php;
-          composer install -n --prefer-dist
+          composer install -n --prefer-dist --ignore-platform-req=php
 
       - name: Configure PHPCS
         run: |
@@ -58,13 +44,7 @@ jobs:
   PHPUnit:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-        with:
-          ref: ${{ github.ref }}
-          token: ${{ secrets.GITHUB_TOKEN }}
-        env:
-          NODE_VERSION: 20
+      - uses: actions/checkout@v2
 
       - name: Installs composer
         run: |
