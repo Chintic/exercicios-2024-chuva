@@ -18,8 +18,7 @@ class Scrapper {
   /**
    * Loads paper information from the HTML and returns the array with the data.
    */
-  public function scrap(\DOMDocument $dom): array {
-    
+  public function scrap(\DOMDocument $dom): array {    
     $xPath = new \DOMXPath($dom);
 
     $domPaperIdList = $xPath->query($this->queryPaperId);
@@ -28,7 +27,7 @@ class Scrapper {
     $domAuthorsList = $xPath->query($this->queryPerson);
 
     $papers = [];
-    for($i = 0; $i < $domPaperIdList->length; $i++){
+    for ($i = 0; $i < $domPaperIdList->length; $i++) {
       $paperId = $domPaperIdList[$i]->textContent;
       $paperTitle = $domPaperTitleList[$i]->textContent;
       $paperType = $domPaperTypeList[$i]->textContent;
