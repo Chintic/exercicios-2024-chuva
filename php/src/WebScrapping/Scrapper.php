@@ -18,7 +18,7 @@ class Scrapper {
   /**
    * Loads paper information from the HTML and returns the array with the data.
    */
-  public function scrap(\DOMDocument $dom): array {    
+  public function scrap(\DOMDocument $dom): array {
     $xPath = new \DOMXPath($dom);
 
     $domPaperIdList = $xPath->query($this->queryPaperId);

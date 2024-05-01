@@ -36,28 +36,12 @@ class Paper {
 
   /**
    * Builder.
-   */
-
-  public function getId() {
-    return $this->id;
-  }
-
-  public function getTitle() {
-    return $this->title;
-  }
-
-  public function getType() {
-    return $this->type;
-  }
-
-  public function getAuthors() {
-    return $this->authors;
-  }
-
+  */
   public function __construct($id, $title, $type, $authors = []) {
     $this->id = $id;
     $this->title = $title;
     $this->type = $type;
     $this->authors = $authors;
   }
+
 }

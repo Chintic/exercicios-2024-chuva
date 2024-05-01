@@ -11,14 +11,6 @@ class Person {
 
   public string $institution;
 
-  public function getName() {
-    return $this->name;
-  }
-
-  public function getInstitution() {
-    return $this->institution;
-  }
-
   /**
    * Builder.
    */
