@@ -77,7 +77,7 @@ class Main {
 
 
     $writer->close();
-    print_r($data);
+    print_r($papers);
   }
 
 }
