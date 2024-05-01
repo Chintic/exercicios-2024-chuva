@@ -10,21 +10,16 @@ use Chuva\Php\WebScrapping\Entity\Person;
  */
 class Scrapper {
 
-  private $queryPaperId = '//div[@class="volume-info"]';
-  private $queryPaperTitle = './/h4[@class="my-xs paper-title"]';
-  private $queryPaperType = '//div[@class="tags mr-sm"]';
-  private $queryPerson = '//div[@class="authors"]';
-
   /**
    * Loads paper information from the HTML and returns the array with the data.
    */
   public function scrap(\DOMDocument $dom): array {
     $xPath = new \DOMXPath($dom);
 
-    $domPaperIdList = $xPath->query($this->queryPaperId);
-    $domPaperTitleList = $xPath->query($this->queryPaperTitle);
-    $domPaperTypeList = $xPath->query($this->queryPaperType);
-    $domAuthorsList = $xPath->query($this->queryPerson);
+    $domPaperIdList = $xPath->query('//div[@class="volume-info"]');
+    $domPaperTitleList = $xPath->query('.//h4[@class="my-xs paper-title"]');
+    $domPaperTypeList = $xPath->query('//div[@class="tags mr-sm"]');
+    $domAuthorsList = $xPath->query('//div[@class="authors"]');
 
     $papers = [];
     for ($i = 0; $i < $domPaperIdList->length; $i++) {
