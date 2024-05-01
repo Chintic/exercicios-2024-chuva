@@ -2,8 +2,8 @@
 
 namespace Chuva\Php\WebScrapping;
 
-use Box\Spout\Writer\Common\Creator\WriterEntityFactory;
 use Box\Spout\Writer\Common\Creator\Style\StyleBuilder;
+use Box\Spout\Writer\Common\Creator\WriterEntityFactory;
 
 /**
  * Runner for the Webscrapping exercice.
@@ -21,24 +21,24 @@ class Main {
 
     $papers = (new Scrapper())->scrap($dom);
 
-    // Write your logic to save the output file bellow.    
-    $writer = WriterEntityFactory::createXLSXWriter();      
+    // Write your logic to save the output file bellow.
+    $writer = WriterEntityFactory::createXLSXWriter();
     $filePath = __DIR__ . '/../../assets/model.xlsx';
     $writer->openToFile($filePath);
     $headerStyle = (new StyleBuilder())
       ->setFontBold()
-      ->setFontName('Arial')      
+      ->setFontName('Arial')
       ->setFontSize(10)
       ->build();
     $contentStyle = (new StyleBuilder())
       ->setFontName('Arial')
       ->setFontSize(10)
-      ->build();    
+      ->build();
     $header = [
       WriterEntityFactory::createCell('ID'),
       WriterEntityFactory::createCell('Title'),
       WriterEntityFactory::createCell('Type'),
-    ];    
+    ];
     $biggestAuthorNumber = 0;
     foreach ($papers as $paper) {
       $authorsCount = count($paper->getAuthors());
@@ -51,7 +51,6 @@ class Main {
       $header[] = WriterEntityFactory::createCell("Author $i");
       $header[] = WriterEntityFactory::createCell("Author $i Institution");
     }
-    
     $headerRow = WriterEntityFactory::createRow($header, $headerStyle);
     $writer->addRow($headerRow);
     $paperRows = [];
