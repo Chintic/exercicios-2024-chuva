@@ -25,20 +25,23 @@ class Scrapper {
     $domPaperIdList = $xPath->query($this->queryPaperId);
     $domPaperTitleList = $xPath->query($this->queryPaperTitle);
     $domPaperTypeList = $xPath->query($this->queryPaperType);
-    $domPersonList = $xPath->query($this->queryPerson);
+    $domAuthorsList = $xPath->query($this->queryPerson);
 
     $papers = [];
     for($i = 0; $i < $domPaperIdList->length; $i++){
-      $paper = new Paper(
-        $domPaperIdList[$i]->textContent,
-        $domPaperTitleList[$i]->textContent,
-        $domPaperTypeList[$i]->textContent,
-        [
-          new Person('Katalin Karikó', 'Szeged University'),
-          new Person('Drew Weissman', 'University of Pennsylvania'),
-        ]
-      );
-      $papers[] = $paper;
+      $paperId = $domPaperIdList[$i]->textContent;
+      $paperTitle = $domPaperTitleList[$i]->textContent;
+      $paperType = $domPaperTypeList[$i]->textContent;
+
+      $paperAuthors = [];
+      $domAuthors = $domAuthorsList[$i]->getElementsByTagName('span');
+      foreach ($domAuthors as $domAuthor) {
+        $authorName = $domAuthor->textContent;
+        $institution = $domAuthor->getAttribute('title');
+        $paperAuthors[] = new Person($authorName, $institution);
+      }
+
+      $papers[] = new Paper($paperId, $paperTitle, $paperType, $paperAuthors);
     }
 
     return $papers;
