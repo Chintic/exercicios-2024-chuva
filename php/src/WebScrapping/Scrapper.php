@@ -27,17 +27,21 @@ class Scrapper {
     $domPaperTypeList = $xPath->query($this->queryPaperType);
     $domPersonList = $xPath->query($this->queryPerson);
 
-    return [
-      new Paper(
-        $domPaperIdList[0]->textContent,
-        $domPaperTitleList[0]->textContent,
-        $domPaperTypeList[0]->textContent,
+    $papers = [];
+    for($i = 0; $i < $domPaperIdList->length; $i++){
+      $paper = new Paper(
+        $domPaperIdList[$i]->textContent,
+        $domPaperTitleList[$i]->textContent,
+        $domPaperTypeList[$i]->textContent,
         [
           new Person('Katalin Karikó', 'Szeged University'),
           new Person('Drew Weissman', 'University of Pennsylvania'),
         ]
-      ),
-    ];
+      );
+      $papers[] = $paper;
+    }
+
+    return $papers;
   }
 
 }
