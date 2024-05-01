@@ -32,7 +32,7 @@ class Paper {
    *
    * @var \Chuva\Php\WebScrapping\Entity\Person[]
    */
-  public $authors = [];
+  public $authors;
 
   /**
    * Builder.
@@ -54,14 +54,14 @@ class Paper {
     return $this->authors;
   }
 
-  public function __construct($id, $title, $type) {
+  public function __construct($id, $title, $type, $authors = []) {
     $this->id = $id;
     $this->title = $title;
     $this->type = $type;
+    $this->authors = $authors;
   }
 
   public function addAuthor(Person $person) {
     $this->authors[] = $person;
   }
-
 }
