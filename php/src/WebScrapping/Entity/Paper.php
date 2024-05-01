@@ -60,8 +60,4 @@ class Paper {
     $this->type = $type;
     $this->authors = $authors;
   }
-
-  public function addAuthor(Person $person) {
-    $this->authors[] = $person;
-  }
 }

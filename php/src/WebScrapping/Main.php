@@ -81,12 +81,9 @@ class Main {
 
       $paperRows[] = WriterEntityFactory::createRowFromArray($rowData, $contentStyle);
     }
-
     $writer->addRows($paperRows);
 
-
     $writer->close();
-    print_r($biggestAuthorNumber);
   }
 
 }
