@@ -1,32 +1,21 @@
-# GaloScrapper
-## Web Scrapping
-Neste segundo exercício você deve capturar os dados de uma página HTML e converter em uma planilha. O arquivo a ser lido é `webscrapping/origin.html`, ele é uma página (com algumas adaptações) de um Proceedings do Galoá. O seu objetivo é extrair as informações sobre trabalhos e montar uma planilha similar a `webscrapping/model.xlsx`.
+#Exercício Web Scrapping - Chuva Inc.
 
-Para a resolução do exercício, você pode alterar qualquer arquivo dentro da pasta `src/WebScrapping`.
+##Referências:
 
-### Como rodar
+#Manipulação de DOM:
+https://www.youtube.com/watch?v=6pq2z9XqKOU
 
-Dependências:
+#Aprendendo a usar Spout:
+https://opensource.box.com/spout/getting-started/
 
-* PHP - linha de comando
-* Extensões do PHP: ZIP, DOM, XML
-* [Composer](https://getcomposer.org/)
+#Estilizando células com Spout:
+https://opensource.box.com/spout/docs/#styling-rows
 
-Rode o seguinte comando para instalar o ambiente:
+#Conversor de CSS para XPath:
+https://css2xpath.github.io/
 
-```
-composer install
-```
+#Usando o Source Control do VS Code:
+https://code.visualstudio.com/docs/sourcecontrol/overview
 
-Para rodar o scrapping, rode o seguinte comando:
-
-```
-composer webscrapping
-```
-
-### Dicas de resolução
-
-Duas ferramentas vão ser especialmente úteis para você resolver este exercício.
-
-* DOM, para ler o HTML - https://www.php.net/manual/pt_BR/class.domdocument.php
-* Spout, para escrever a planilha - https://opensource.box.com/spout/
+#Esclarecimento de dúvidas:
+https://chat.openai.com/
