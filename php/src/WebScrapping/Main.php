@@ -46,6 +46,15 @@ class Main {
       WriterEntityFactory::createCell('Type')
     ];
     
+    $biggestAuthorNumber = 0;
+
+    foreach ($papers as $paper) {
+      $authorsCount = count($paper->getAuthors());
+      if ($authorsCount > $biggestAuthorNumber) {
+        $biggestAuthorNumber = $authorsCount;
+      }
+    }
+
     for ($i = 1; $i <= $biggestAuthorNumber; $i++) {
       $header[] = WriterEntityFactory::createCell("Author $i");
       $header[] = WriterEntityFactory::createCell("Author $i Institution");
@@ -77,7 +86,7 @@ class Main {
 
 
     $writer->close();
-    print_r($papers);
+    print_r($biggestAuthorNumber);
   }
 
 }
