@@ -7,14 +7,8 @@ namespace Chuva\Php\WebScrapping\Entity;
  */
 class Person {
 
-  /**
-   * Person name.
-   */
   public string $name;
 
-  /**
-   * Person institution.
-   */
   public string $institution;
 
   public function getName() {
